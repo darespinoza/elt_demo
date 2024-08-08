@@ -9,18 +9,13 @@ from dagster import (
     MonthlyPartitionsDefinition,
 )
 
-from dagster_embedded_elt.sling import (
-    SlingResource, 
-    sling_assets,
-)
-
 import requests
 import pandas as pd
 from dotenv import load_dotenv
 import os
 
-from ..resources import PostgresResource, MSSQLResource, incremental_replication_config
-from .constants import LATITUDE, LONGITUDE, OM_ERA5_URL, DBT_PROJ_PATH, RAW_METEO_TABLE
+from ..resources import PostgresResource, MSSQLResource, incremental_replication_config, dbt_resource
+from .constants import LATITUDE, LONGITUDE, OM_ERA5_URL, RAW_METEO_TABLE
 
 # Create a MonthlyPartitionDefinition for Open-Meteo asset
 om_monthly_partition = MonthlyPartitionsDefinition(start_date="2024-01-01")
@@ -147,15 +142,4 @@ def raw_data_save_mssql(context: AssetExecutionContext,
     except Exception as e:
         logger.error(f"[ERROR] Saving data from Open-Meteo.\n{str(e)}")
 
-@sling_assets(
-    replication_config=incremental_replication_config,
-    )
-def my_assets(context, 
-            sling: SlingResource):
-    """
-        Uses a Sling resources to stream data from SQL Server source to Postgres target
-    """
-    try:
-        yield from sling.replicate(context=context)
-    except Exception as e:
-        logger.error(f"[ERROR] Streaming open-meteo data with Sling.\n{str(e)}")
+

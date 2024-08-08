@@ -1,0 +1,248 @@
+[0m20:10:08.152899 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b3153ee10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b3153ee70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b311ffe00>]}
+
+
+============================== 20:10:08.157658 | 77c24612-fe75-4d4d-bf86-3c78f11d4f64 ==============================
+[0m20:10:08.157658 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:10:08.161618 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/opt/dagster/app', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m20:10:08.189786 [info ] [MainThread]: dbt version: 1.8.5
+[0m20:10:08.193554 [info ] [MainThread]: python version: 3.12.5
+[0m20:10:08.196072 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m20:10:08.197289 [info ] [MainThread]: os info: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[0m20:10:08.204981 [error] [MainThread]: Encountered an error:
+cannot access local variable 'summary_message' where it is not associated with a value
+[0m20:10:08.208743 [error] [MainThread]: Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/main.py", line 406, in debug
+    results = task.run()
+              ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/debug.py", line 120, in run
+    load_profile_status: SubtaskStatus = self._load_profile()
+                                         ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/debug.py", line 207, in _load_profile
+    profile_names, summary_message = self._choose_profile_names()
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/debug.py", line 282, in _choose_profile_names
+    return profiles, summary_message
+                     ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'summary_message' where it is not associated with a value
+
+[0m20:10:08.211677 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 0.07999684, "process_user_time": 2.316809, "process_kernel_time": 0.14915, "process_mem_max_rss": "97984", "process_in_blocks": "432", "process_out_blocks": "224", "command_success": false}
+[0m20:10:08.213214 [debug] [MainThread]: Command `dbt debug` failed at 20:10:08.212948 after 0.08 seconds
+[0m20:10:08.215981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b3153ee10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b312278c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1b31226600>]}
+[0m20:10:08.217590 [debug] [MainThread]: Flushing usage events
+[0m20:12:35.142290 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4063c17ef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4063d2eae0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4063c17da0>]}
+
+
+============================== 20:12:35.147417 | f1855b3e-829c-43b2-bf9f-d5eee34f5327 ==============================
+[0m20:12:35.147417 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:12:35.149015 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/dagster/app', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt init etl_demo_transformations', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m20:12:35.177768 [debug] [MainThread]: Starter project path: /usr/local/lib/python3.12/site-packages/dbt/include/starter_project
+[0m20:12:35.405561 [info ] [MainThread]: 
+Your new dbt project "etl_demo_transformations" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:12:35.406862 [info ] [MainThread]: Setting up your profile.
+[0m20:12:43.432418 [error] [MainThread]: Encountered an error:
+
+[0m20:12:43.438509 [error] [MainThread]: Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/cli/main.py", line 470, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/init.py", line 347, in run
+    self.setup_profile(profile_name)
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/init.py", line 262, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/dbt/task/init.py", line 243, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m20:12:43.440999 [debug] [MainThread]: Resource report: {"command_name": "init", "command_wall_clock_time": 8.316683, "process_user_time": 2.252335, "process_kernel_time": 0.167937, "process_mem_max_rss": "96820", "process_in_blocks": "360", "command_success": false, "process_out_blocks": "0"}
+[0m20:12:43.442495 [debug] [MainThread]: Command `dbt init` failed at 20:12:43.442286 after 8.32 seconds
+[0m20:12:43.443606 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4064689910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4063f51d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4063a77c20>]}
+[0m20:12:43.444704 [debug] [MainThread]: Flushing usage events
+[0m20:12:58.095098 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131ba4bc80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131bb64110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131bb23a70>]}
+
+
+============================== 20:12:58.100079 | 88b7e73f-2ce8-4c39-93f2-9e7b382e26c1 ==============================
+[0m20:12:58.100079 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:12:58.102612 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/dagster/app', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init etl_demo_transformations', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:12:58.118836 [info ] [MainThread]: A project called etl_demo_transformations already exists here.
+[0m20:12:58.121358 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 0.04556575, "process_user_time": 2.296776, "process_kernel_time": 0.099859, "process_mem_max_rss": "96816", "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m20:12:58.123454 [debug] [MainThread]: Command `dbt init` succeeded at 20:12:58.123145 after 0.05 seconds
+[0m20:12:58.124542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131bfe6480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131bfe7860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f131bb22fc0>]}
+[0m20:12:58.125789 [debug] [MainThread]: Flushing usage events
+[0m20:13:30.572487 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b13917ce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b14386000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b142208c0>]}
+
+
+============================== 20:13:30.579297 | fdc7bb17-7724-402b-afe4-1949dafd32fb ==============================
+[0m20:13:30.579297 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:13:30.581427 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/opt/dagster/app', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt init demo_transformations', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:13:30.601617 [debug] [MainThread]: Starter project path: /usr/local/lib/python3.12/site-packages/dbt/include/starter_project
+[0m20:13:30.795672 [info ] [MainThread]: 
+Your new dbt project "demo_transformations" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:13:30.796859 [info ] [MainThread]: Setting up your profile.
+[0m20:14:17.020131 [info ] [MainThread]: Profile demo_transformations written to /opt/dagster/app/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m20:14:17.022964 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 46.468517, "process_user_time": 2.405117, "process_kernel_time": 0.24542, "process_mem_max_rss": "101528", "process_in_blocks": "264", "process_out_blocks": "0"}
+[0m20:14:17.025061 [debug] [MainThread]: Command `dbt init` succeeded at 20:14:17.024687 after 46.47 seconds
+[0m20:14:17.026333 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b14386000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b139e1280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3b149563c0>]}
+[0m20:14:17.027649 [debug] [MainThread]: Flushing usage events
+[0m20:14:27.081552 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd534982270>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd536d9eb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd534cc5c40>]}
+
+
+============================== 20:14:27.086339 | ed28ca54-d836-440a-b895-2fbe7bae055e ==============================
+[0m20:14:27.086339 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:14:27.088469 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/opt/dagster/app', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m20:14:27.103516 [info ] [MainThread]: dbt version: 1.8.5
+[0m20:14:27.105389 [info ] [MainThread]: python version: 3.12.5
+[0m20:14:27.107130 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m20:14:27.108954 [info ] [MainThread]: os info: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[0m20:14:27.224875 [info ] [MainThread]: Using profiles dir at /opt/dagster/app
+[0m20:14:27.226151 [info ] [MainThread]: Using profiles.yml file at /opt/dagster/app/profiles.yml
+[0m20:14:27.228257 [info ] [MainThread]: Using dbt_project.yml file at /opt/dagster/app/dbt_project.yml
+[0m20:14:27.230784 [info ] [MainThread]: adapter type: postgres
+[0m20:14:27.232242 [info ] [MainThread]: adapter version: 1.8.2
+[0m20:14:27.234328 [info ] [MainThread]: Configuration:
+[0m20:14:27.235697 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:14:27.237887 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:14:27.239367 [info ] [MainThread]: Required dependencies:
+[0m20:14:27.241650 [debug] [MainThread]: Executing "git --help"
+[0m20:14:27.244586 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m20:14:27.246054 [info ] [MainThread]: Connection:
+[0m20:14:27.247754 [info ] [MainThread]:   host: postgres_target
+[0m20:14:27.249909 [info ] [MainThread]:   port: 5432
+[0m20:14:27.251364 [info ] [MainThread]:   user: postgres
+[0m20:14:27.252971 [info ] [MainThread]:   database: postgres
+[0m20:14:27.255267 [info ] [MainThread]:   schema: public
+[0m20:14:27.256916 [info ] [MainThread]:   connect_timeout: 10
+[0m20:14:27.259114 [info ] [MainThread]:   role: None
+[0m20:14:27.260513 [info ] [MainThread]:   search_path: None
+[0m20:14:27.263099 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:14:27.266855 [info ] [MainThread]:   sslmode: None
+[0m20:14:27.268627 [info ] [MainThread]:   sslcert: None
+[0m20:14:27.270503 [info ] [MainThread]:   sslkey: None
+[0m20:14:27.274574 [info ] [MainThread]:   sslrootcert: None
+[0m20:14:27.276607 [info ] [MainThread]:   application_name: dbt
+[0m20:14:27.278967 [info ] [MainThread]:   retries: 1
+[0m20:14:27.281507 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m20:14:27.284909 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:14:27.378616 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:14:27.379638 [debug] [MainThread]: On debug: select 1 as id
+[0m20:14:27.380551 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:14:27.389351 [debug] [MainThread]: SQL status: SELECT 1 in 0.009 seconds
+[0m20:14:27.391583 [debug] [MainThread]: On debug: Close
+[0m20:14:27.392456 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m20:14:27.393968 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m20:14:27.395892 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </opt/dagster/app/dbt_project.yml> not found
+
+[0m20:14:27.397624 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m20:14:27.400814 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 0.42799816, "process_user_time": 2.547108, "process_kernel_time": 0.180503, "process_mem_max_rss": "108296", "process_in_blocks": "256", "command_success": false, "process_out_blocks": "0"}
+[0m20:14:27.403074 [debug] [MainThread]: Command `dbt debug` failed at 20:14:27.402455 after 0.43 seconds
+[0m20:14:27.404332 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:14:27.405330 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5349bf380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5347b9eb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd5353776b0>]}
+[0m20:14:27.406329 [debug] [MainThread]: Flushing usage events
+[0m20:16:49.827931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d26216930>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d27c92d50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d2694bc50>]}
+
+
+============================== 20:16:49.832956 | 48cf6b01-ec6a-49f4-8f58-884bd68c52d6 ==============================
+[0m20:16:49.832956 [info ] [MainThread]: Running with dbt=1.8.5
+[0m20:16:49.834818 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/opt/dagster/app', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:16:49.849785 [info ] [MainThread]: dbt version: 1.8.5
+[0m20:16:49.850944 [info ] [MainThread]: python version: 3.12.5
+[0m20:16:49.852261 [info ] [MainThread]: python path: /usr/local/bin/python
+[0m20:16:49.854637 [info ] [MainThread]: os info: Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[0m20:16:49.962396 [info ] [MainThread]: Using profiles dir at /opt/dagster/app
+[0m20:16:49.964196 [info ] [MainThread]: Using profiles.yml file at /opt/dagster/app/profiles.yml
+[0m20:16:49.966164 [info ] [MainThread]: Using dbt_project.yml file at /opt/dagster/app/dbt_project.yml
+[0m20:16:49.968904 [info ] [MainThread]: adapter type: postgres
+[0m20:16:49.972536 [info ] [MainThread]: adapter version: 1.8.2
+[0m20:16:49.974596 [info ] [MainThread]: Configuration:
+[0m20:16:49.975937 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m20:16:49.977833 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m20:16:49.979372 [info ] [MainThread]: Required dependencies:
+[0m20:16:49.981059 [debug] [MainThread]: Executing "git --help"
+[0m20:16:49.983523 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m20:16:49.985061 [info ] [MainThread]: Connection:
+[0m20:16:49.986598 [info ] [MainThread]:   host: postgres_target
+[0m20:16:49.989511 [info ] [MainThread]:   port: 5432
+[0m20:16:49.991103 [info ] [MainThread]:   user: postgres
+[0m20:16:49.992651 [info ] [MainThread]:   database: postgres
+[0m20:16:49.995503 [info ] [MainThread]:   schema: public
+[0m20:16:49.996833 [info ] [MainThread]:   connect_timeout: 10
+[0m20:16:49.998463 [info ] [MainThread]:   role: None
+[0m20:16:50.000122 [info ] [MainThread]:   search_path: None
+[0m20:16:50.001853 [info ] [MainThread]:   keepalives_idle: 0
+[0m20:16:50.004639 [info ] [MainThread]:   sslmode: None
+[0m20:16:50.006683 [info ] [MainThread]:   sslcert: None
+[0m20:16:50.008255 [info ] [MainThread]:   sslkey: None
+[0m20:16:50.009949 [info ] [MainThread]:   sslrootcert: None
+[0m20:16:50.012170 [info ] [MainThread]:   application_name: dbt
+[0m20:16:50.013599 [info ] [MainThread]:   retries: 1
+[0m20:16:50.015952 [info ] [MainThread]: Registered adapter: postgres=1.8.2
+[0m20:16:50.019900 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m20:16:50.081041 [debug] [MainThread]: Using postgres connection "debug"
+[0m20:16:50.082040 [debug] [MainThread]: On debug: select 1 as id
+[0m20:16:50.082837 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:16:50.089427 [debug] [MainThread]: SQL status: SELECT 1 in 0.007 seconds
+[0m20:16:50.091592 [debug] [MainThread]: On debug: Close
+[0m20:16:50.092705 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m20:16:50.094987 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m20:16:50.097236 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </opt/dagster/app/dbt_project.yml> not found
+
+[0m20:16:50.099530 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+
+[0m20:16:50.104623 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_wall_clock_time": 0.3817592, "process_user_time": 2.51209, "process_kernel_time": 0.201774, "process_mem_max_rss": "108348", "command_success": false, "process_in_blocks": "0", "process_out_blocks": "0"}
+[0m20:16:50.106934 [debug] [MainThread]: Command `dbt debug` failed at 20:16:50.106634 after 0.38 seconds
+[0m20:16:50.108215 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m20:16:50.109566 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d26216930>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d263466c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5d263a3470>]}
+[0m20:16:50.110811 [debug] [MainThread]: Flushing usage events

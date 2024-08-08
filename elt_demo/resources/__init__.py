@@ -15,9 +15,9 @@ import os
 from ..assets.constants import DBT_PROJ_PATH, RAW_METEO_TABLE
 
 # dbt resource to perform demo tranformations
-# dbt_resource = DbtCliResource(
-#     project_dir=DBT_PROJ_PATH,
-# )
+dbt_resource = DbtCliResource(
+    project_dir=DBT_PROJ_PATH,
+)
 
 # Load environment variables from .env file
 load_dotenv()
