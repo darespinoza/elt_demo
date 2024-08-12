@@ -50,6 +50,23 @@ RUN pip install -e ".[dev]"
 ENV DAGSTER_HOME=/opt/dagster/dagster_home/
 ENV DAGSTER_DBT_PARSE_PROJECT_ON_LOAD=1
 
+# Set MSSQL SOURCE environment variables
+ENV MSSQL_USER='SA'
+ENV MSSQL_PASSWORD='Admin123'
+ENV MSSQL_DATABASE='master'
+ENV MSSQL_SCHEMA='dbo'
+ENV MSSQL_HOST='sqlserver_source'
+ENV MSSQL_PORT=1433
+ENV MSSQL_DRIVER='ODBC Driver 17 for SQL Server'
+
+# Set Postgres TARGET environment variables
+ENV PG_USER='postgres'
+ENV PG_PASSWORD='Admin456'
+ENV PG_DATABASE='postgres'
+ENV PG_SCHEMA='public'
+ENV PG_HOST='postgres_target'
+ENV PG_PORT=5432
+
 EXPOSE 3000
 
 ENTRYPOINT [ "dagster", "dev", "-h", "0.0.0.0", "-p", "3000" ]

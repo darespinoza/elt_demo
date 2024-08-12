@@ -20,7 +20,7 @@ dbt_resource = DbtCliResource(
 )
 
 # Load environment variables from .env file
-load_dotenv()
+# load_dotenv()
 
 # Get Dagster Logger
 logger = get_dagster_logger()

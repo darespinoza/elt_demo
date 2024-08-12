@@ -24,7 +24,7 @@ om_monthly_partition = MonthlyPartitionsDefinition(start_date="2024-01-01")
 logger = get_dagster_logger()
 
 # Load environment variables from .env file
-load_dotenv()
+# load_dotenv()
 
 @asset(
     group_name="raw_data_collection",

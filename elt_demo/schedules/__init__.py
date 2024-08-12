@@ -2,7 +2,8 @@ from dagster import (
     ScheduleDefinition, 
     build_schedule_from_partitioned_job,
 )
-from ..jobs import dbt_job, sling_job #, monthly_asset_job
+
+from ..jobs import dbt_job, sling_job, raw_assets_job
 
 dbt_schedule = ScheduleDefinition(
     job=dbt_job,
@@ -16,8 +17,7 @@ sling_schedule = ScheduleDefinition(
 )
 
 # Define a schedule that runs the job at the start of each month
-# monthly_asset_schedule = build_schedule_from_partitioned_job(
-#     monthly_asset_job,
-#     name="monthly_asset_schedule",
-#     cron_schedule="0 0 1 * *",  # At midnight on the first day of each month
-# )
+raw_asset_schedule = ScheduleDefinition(
+    job=raw_assets_job,
+    cron_schedule="0 0 1 * *",  # At midnight on the first day of each month
+)
