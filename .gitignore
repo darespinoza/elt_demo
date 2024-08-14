@@ -3,3 +3,4 @@ assets/__pycache__/
 jobs/__pycache__/
 resources/__pycache__/
 schedules/__pycache__/
+etl_demo/__pycache__/
