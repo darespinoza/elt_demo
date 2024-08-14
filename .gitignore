@@ -1,6 +1,6 @@
 io_manager_data/
-assets/__pycache__/
-jobs/__pycache__/
-resources/__pycache__/
-schedules/__pycache__/
-etl_demo/__pycache__/
+elt_demo/__pycache__/
+elt_demo/assets/__pycache__/
+elt_demo/jobs/__pycache__/
+elt_demo/resources/__pycache__/
+elt_demo/schedules/__pycache__/
