@@ -4,6 +4,24 @@ services:
   dagster_elt:
     restart: always
     container_name: dagster_elt_demo
+    environment:
+      # Set Dagster environment variables
+      - DAGSTER_HOME=${DAGSTER_HOME}
+      - DAGSTER_DBT_PARSE_PROJECT_ON_LOAD=${DAGSTER_DBT_PARSE_PROJECT_ON_LOAD}
+      # Set MSSQL SOURCE environment variables
+      - MSSQL_USER=${MSSQL_USER}
+      - MSSQL_PASSWORD=${MSSQL_PASSWORD}
+      - MSSQL_DATABASE=${MSSQL_DATABASE}
+      - MSSQL_SCHEMA=${MSSQL_SCHEMA}
+      - MSSQL_HOST=${MSSQL_HOST}
+      - MSSQL_DRIVER=${MSSQL_DRIVER}
+      # Set Postgres TARGET environment variables
+      - PG_USER=${PG_USER}
+      - PG_PASSWORD=${PG_PASSWORD}
+      - PG_DATABASE=${PG_DATABASE}
+      - PG_SCHEMA=${PG_SCHEMA}
+      - PG_HOST=${PG_HOST}
+      - PG_PORT=${PG_PORT}
     build:
       context: .
       dockerfile: ./Dockerfile_Dagster
@@ -20,8 +38,8 @@ services:
     restart: always
     container_name: sqlserver_source
     environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=Admin123
+      - ACCEPT_EULA=${ACCEPT_EULA}
+      - MSSQL_SA_PASSWORD=${MSSQL_PASSWORD}
     ports:
       - "1434:1433"
     volumes:
@@ -36,7 +54,7 @@ services:
     shm_size: 128mb
     container_name: postgres_target
     environment:
-      POSTGRES_PASSWORD: Admin456
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
     ports:
       - "5433:5432"
     volumes:

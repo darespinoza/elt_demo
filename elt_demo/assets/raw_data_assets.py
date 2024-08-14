@@ -11,7 +11,6 @@ from dagster import (
 
 import requests
 import pandas as pd
-from dotenv import load_dotenv
 import os
 
 from ..resources import PostgresResource, MSSQLResource, incremental_replication_config, dbt_resource
@@ -22,9 +21,6 @@ om_monthly_partition = MonthlyPartitionsDefinition(start_date="2024-01-01")
 
 # Dagster Logger
 logger = get_dagster_logger()
-
-# Load environment variables from .env file
-# load_dotenv()
 
 @asset(
     group_name="raw_data_collection",
