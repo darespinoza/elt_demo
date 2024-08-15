@@ -26,7 +26,7 @@ services:
       context: .
       dockerfile: ./Dockerfile_Dagster
     ports:
-      - 4000:3000
+      - 5000:3000
     volumes:
       - .:/opt/dagster/app
     networks:
@@ -62,9 +62,34 @@ services:
     networks:
       - elt_network
 
+  # GRAFANA
+  grafana:
+    image: grafana/grafana-oss:11.1.4
+    container_name: grafana_elt
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      # Set Postgres TARGET environment variables
+      - PG_USER=${PG_USER}
+      - PG_PASSWORD=${PG_PASSWORD}
+      - PG_DATABASE=${PG_DATABASE}
+      - PG_SCHEMA=${PG_SCHEMA}
+      - PG_HOST=${PG_HOST}
+      - PG_PORT=${PG_PORT}
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - postgres_target
+    networks:
+      - elt_network
+
 volumes:
   mssql_data:
   pg_data:
+  grafana-storage:
 
 networks:
   elt_network:
