@@ -1,29 +1,48 @@
 # Extract, Load & Transform demo
 
+For this ELT architecture demo I've used Sling, dbt and Dagster. This project shows the power of combining different technologies to achieve a robust solution for data integration and processing.
 
-Recientemente creé una demo de arquitectura ELT usando Sling, dbt y Dagster. Este proyecto demuestra el poder de combinar distintas tecnologías para lograr una solución robusta para la integración y procesamiento de datos.
+For this demo I'm using weather data for Cuenca city in Ecuador, but you can change it to your own by modifing coordinates in the `elt_demo\assets\constants.py` file.
 
-Aquí un breve resumen de las tecnologías que utilicé:
+![ELT demo architecture](darwiodev_elt_demo.drawio.png "ELT demo architecture")
 
-Sling: Para realizar una carga incremental de una base de datos a otra (Extract & Load)
-dbt: Para transformar la data usando modelos incrementales (Transform)
-Dagster: Para orquestar la ejecución de los procesos ELT
+This is how it works, in short:
 
-Adicionalmente usé Grafana para visualizar la data transformada y Docker para contener a la arquitectura.
+1. Collect hourly data from Open Meteo Historical Weather API using a [Dagster](https://dagster.io) monthly partition. Selected variables are temperature, relative humidity, precipitation and wind speed.
+2. Save collected data in a SQL Server database. This will be used as our source of raw data.
+3. **E**xtract raw data from SQL Server source and **L**oad it to a PostgreSQL target database. For this step we use a [Sling](https://slingdata.io) incremental load.
+4. **T**rasnform the raw data to daily and monthly agregations for each metheorologic variable. For this step we use [dbt](https://docs.getdbt.com) incremental models
 
-Github: 
+As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable. If you're running on Linux, grant writing permissions to the `grafana-storage` directory.
 
+![Grafana daily Cuenca dashboard](grafana_elt_demo.png "Grafana daily Cuenca dashboard")
 
-For this demo of an ELT architecture, I've used Sling, dbt and Dagster. This project shows the power of combining different technologies to achieve a rosbust solution to data integration and processing.
+Finally, this entire ELT architecture was build using [Docker](https://www.docker.com/) containers, so it can be easily rebuild on other systems.
 
-For this demo, I've set a source database 
+# Try it!
 
-#ELT #IngenieriaDeDatos #Tecnologia #IntegracionDeDatos #Sling #dbt #Dagster #Grafana #Docker
+First, clone this repo.
 
 ```
 git clone https://github.com/darespinoza/elt_demo.git
 ```
 
+Then, start it.
+
 ```
-docker compose up
+docker compose up -d
 ```
+
+And that's it! You're ready to go!
+
+## How to use it
+
+Navigate to Dagster's UI at http://localhost:5000/overview/jobs
+
+1. Materialize the `raw_assets_job` to populate the SQL Server source database with hourly data from Open Meteo Historical Weather API.
+2. Materialize the `sling_job` to **E**xtract raw data from the source database and **L**oad it to the PostgreSQL target database.
+3. Materialize the `dbt_job` to run incremental models using raw data.
+
+Each job has a schedule, wich you can activate to run them automatically.
+
+![Dagster ELT jobs](dagster_elt_demo.png "Dagster ELT jobs")
