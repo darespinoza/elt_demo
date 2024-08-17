@@ -13,9 +13,9 @@ This is how it works, in short:
 3. **E**xtract raw data from SQL Server source and **L**oad it to a PostgreSQL target database. For this step we use a [Sling](https://slingdata.io) incremental load.
 4. **T**ransform the raw data to daily and monthly agregations for each metheorologic variable. For this step we use [dbt](https://docs.getdbt.com) incremental models
 
-As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable. At http://localhost:3001 user and passwords are 'admin'.
+As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable, at http://localhost:3001 user and password are both 'admin'.
 
-If you're running on Linux, grant writing permissions to the `grafana-storage` directory.
+If you're running on Linux, grant writing permission to the `grafana-storage` directory.
 
 ![Grafana daily Cuenca dashboard](grafana_elt_demo.png "Grafana daily Cuenca dashboard")
 
