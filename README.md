@@ -1,6 +1,6 @@
 # Extract, Load & Transform demo
 
-For this ELT architecture demo I've used Sling, dbt and Dagster. This project shows the power of combining different technologies to achieve a robust solution for data integration and processing.
+This ELT architecture demo shows the power of combining different technologies to achieve a robust solution for data integration, processing and visualization.
 
 For this demo I'm using weather data for Cuenca city in Ecuador, but you can change it to your own by modifing coordinates in the `elt_demo\assets\constants.py` file.
 
@@ -8,10 +8,10 @@ For this demo I'm using weather data for Cuenca city in Ecuador, but you can cha
 
 This is how it works, in short:
 
-1. Collect hourly data from Open Meteo Historical Weather API using a [Dagster](https://dagster.io) monthly partition. Selected variables are temperature, relative humidity, precipitation and wind speed.
+1. Collect hourly weather data from Open Meteo Historical Weather API using a [Dagster](https://dagster.io) monthly partition. Selected variables are temperature, relative humidity, precipitation and wind speed.
 2. Save collected data in a SQL Server database. This will be used as our source of raw data.
 3. **E**xtract raw data from SQL Server source and **L**oad it to a PostgreSQL target database. For this step we use a [Sling](https://slingdata.io) incremental load.
-4. **T**ransform the raw data to daily and monthly agregations for each metheorologic variable. For this step we use [dbt](https://docs.getdbt.com) incremental models
+4. **T**ransform the raw hourly data to the form of monthly and daily aggregations, obtaining average, maximum and minimum values for each variable. For this step we use [dbt](https://docs.getdbt.com) incremental models.
 
 As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable, at http://localhost:3001 user and password are both 'admin'.
 
