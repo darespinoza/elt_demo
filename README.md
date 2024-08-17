@@ -11,9 +11,11 @@ This is how it works, in short:
 1. Collect hourly data from Open Meteo Historical Weather API using a [Dagster](https://dagster.io) monthly partition. Selected variables are temperature, relative humidity, precipitation and wind speed.
 2. Save collected data in a SQL Server database. This will be used as our source of raw data.
 3. **E**xtract raw data from SQL Server source and **L**oad it to a PostgreSQL target database. For this step we use a [Sling](https://slingdata.io) incremental load.
-4. **T**rasnform the raw data to daily and monthly agregations for each metheorologic variable. For this step we use [dbt](https://docs.getdbt.com) incremental models
+4. **T**ransform the raw data to daily and monthly agregations for each metheorologic variable. For this step we use [dbt](https://docs.getdbt.com) incremental models
 
-As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable. If you're running on Linux, grant writing permissions to the `grafana-storage` directory.
+As an aditional step I've used a [Grafana](https://grafana.com) dashboard to show the transformed data of each weather variable. At http://localhost:3001 user and passwords are 'admin'.
+
+If you're running on Linux, grant writing permissions to the `grafana-storage` directory.
 
 ![Grafana daily Cuenca dashboard](grafana_elt_demo.png "Grafana daily Cuenca dashboard")
 
